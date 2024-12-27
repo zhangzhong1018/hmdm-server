@@ -88,6 +88,14 @@ angular.module('headwind-kiosk')
             removeGroup: {url: 'rest/private/groups/:id', method: 'DELETE'}
         })
     })
+    .factory('locationService', function ($resource) {
+        return $resource('', {}, {
+            getAllLocations: {url: 'rest/private/locations/search/:value', method: 'GET'},
+            getLocation: {url: 'rest/private/locations/:id', method: 'GET'},
+            updateLocation: {url: 'rest/private/locations', method: 'PUT'},
+            removeLocation: {url: 'rest/private/locations/:id', method: 'DELETE'}
+        })
+    })
     .factory('roleService', function ($resource) {
         return $resource('', {}, {
             getPermissions: {url: 'rest/private/roles/permissions', method: 'GET'},

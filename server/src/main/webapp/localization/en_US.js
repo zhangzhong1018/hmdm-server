@@ -192,7 +192,7 @@ document.localization ['en_US'] = {
     'error.configuration.file.empty.desc': 'Specify a file description',
     'error.configuration.file.empty.path': 'Specify the path on the device',
     'error.configuration.file.empty.file': 'Enter a URL or upload a file',
-    
+
     'error.notfound.device': 'Device not found',
     'error.duplicate.device': 'A device with the same number already exists',
     'error.duplicate.login': 'Such a login is already in use',
@@ -520,7 +520,7 @@ document.localization ['en_US'] = {
     'form.application.setting.comment': 'Comment',
     'form.application.setting.type': 'Type',
     'form.application.setting.readonly': 'Does not change on the device',
-    
+
     'form.application.configurations.app': 'Application',
     'form.application.configurations.configs': 'Configurations',
 
@@ -746,7 +746,7 @@ document.localization ['en_US'] = {
     'tab.license': 'License',
     'tab.hints': 'Hints',
     'tab.plugins': 'Plugins',
-    
+
     'tab.configeditor.common.settings': 'Common settings',
     'tab.configeditor.design.settings': 'Design Settings',
     'tab.configeditor.applications': 'Applications',
@@ -808,7 +808,7 @@ document.localization ['en_US'] = {
     'table.heading.file.description': 'File description',
     'table.heading.file.action': 'Action',
     'table.heading.file.lastUpdate': 'Creation date',
-    
+
     'table.heading.application.pkg': 'Package ID',
     'table.heading.application.name': 'Application Name',
     'table.heading.application.version': 'Version',
@@ -1067,6 +1067,22 @@ document.localization ['en_US'] = {
     'permission.edit_application_versions': 'Manage application versions',
     'permission.files': 'View files',
     'permission.edit_files': 'Manage files',
+
+    'form.settings.locations.title': 'Locations',
+    'form.settings.locations.search.placeholder': 'Location search',
+    'form.location.name': 'Name',
+    'form.location.name.placeholder': 'Enter the name of the location',
+    'table.heading.location.code': 'Zip code',
+    'table.heading.location.name': 'Name',
+    'table.heading.location.state': 'State',
+    'table.heading.location.latitude': 'Latitude',
+    'table.heading.location.longitude': 'Longitude',
+    'table.heading.location.actions': 'Actions',
+    'notfound.locations':' No locations found. Try a different query.',
+    'question.delete.location': 'Delete location "${locationName}"?',
+    'error.notempty.location': 'This location includes one or more devices. You cannot remove it.',
+    'error.empty.location.name': 'Fill in the location name',
+    'error.duplicate.location.name': 'The location with the entered name already exists. Try a different name.',
 
     'yes': 'yes',
     'no': 'no'

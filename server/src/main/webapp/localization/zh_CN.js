@@ -1,5 +1,5 @@
-if (! document.localization) document.localization = [];		
-		
+if (! document.localization) document.localization = [];
+
 document.localization ['zh_CN'] = {
     'login.username' : "用户名或电子邮件",
     'login.username.placeholder':"输入您的用户名或电子邮件",
@@ -84,7 +84,7 @@ document.localization ['zh_CN'] = {
     'devices.file.installed' : "- ${file}: 已安装",
     'devices.file.not.installed' : "- ${file} 未安装.",
     'devices.file.lastUpdate.differs' : "- ${file}: 修改时间差 ${diff} 分钟",
-		
+
     'button.apply' : "套用",
     'button.gps.on':"启用GPS",
     'button.wifi.on':"启用Wi-Fi",
@@ -130,7 +130,7 @@ document.localization ['zh_CN'] = {
     'button.hints.disable':"隐藏工具提示",
     'button.show.password' : "显示密码",
     'button.hide.password':"隐藏密码",
-		
+
     'question.impersonate.user':"以组织\"${customerName}\"的管理员身份登录到应用程式吗？",
     'question.change.user': '以用户\"${userName}\"的身份登录应用程序？',
     'question.delete.file' : "要删除文档\"${fileName}\"吗？",
@@ -146,11 +146,11 @@ document.localization ['zh_CN'] = {
     'question.exit.without.saving' : "更改未储存。无论如何要离开此页面？",
     'question.turn2common.application':"共享应用程式\"${applicationName}\"吗？",
     'question.app.upgrade':"将应用程式\"${v1}\"更新到配置\"${v2}\"的最新版本吗？",
-		
+
     'error.application.setting.empty.app':"指定应用程式",
     'error.application.setting.empty.name':"输入名称",
     'error.application.setting.empty.value':"指定值",
-		
+
     'error.icon.dimension.invalid':"图示必须是正方形的",
     'error.icon.empty.name':"输入图示名称",
     'error.icon.empty.file':"上传图示文档",
@@ -255,7 +255,7 @@ document.localization ['zh_CN'] = {
     'success.plugins.disabled':"设置已成功储存",
     'success.config.update.notification':"配置更新命令已发送到设备",
     'success.config.update.device.app.settings.notification':"更新应用程式设置的命令已发送到设备。",
-		
+
     'form.icon.title' : "图示",
     'form.icon.name' : "名称",
     'form.icon.file' : "文档",
@@ -448,7 +448,7 @@ document.localization ['zh_CN'] = {
     'form.configuration.file.action.prompt.2' : "去掉",
     'form.configuration.file.remove.prompt.1':"此文档将不再与设备同步",
     'form.configuration.file.remove.prompt.2':"从服务器删除文档",
-		
+
     'form.password.title' : "更改密码",
     'form.password.label.user' : "用户",
     'form.password.label.password.new' : "新密码",
@@ -512,7 +512,7 @@ document.localization ['zh_CN'] = {
     'form.application.icon' : "图示",
     'form.application.icon.default' : "（默认）",
     'form.application.icon.add':"新增图示",
-		
+
     'form.application.setting.app' : "应用程式",
     'form.application.setting.app.placeholder':"选择应用程式",
     'form.application.setting.name' : "属性",
@@ -523,10 +523,10 @@ document.localization ['zh_CN'] = {
 
     'form.application.configurations.app' : "应用程式",
     'form.application.configurations.configs':"配置",
-		
+
     'form.configuration.copy.new.name' : "新名字",
     'form.configuration.copy.new.name.placeholder':"输入新的配置名称",
-		
+
     'form.customer.name' : "名称",
     'form.customer.name.placeholder':"输入组织名称",
     'form.customer.admin.name': '管理员名称',
@@ -559,7 +559,7 @@ document.localization ['zh_CN'] = {
     'form.device.config' : "配置",
     'form.device.imei' : "IMEI",
     'form.device.phone.number' : "电话号码",
-		
+
     'form.update.device.config' : "配置",
     'form.update.device.action': '组操作',
     'form.device.set.group': '添加到组',
@@ -573,7 +573,7 @@ document.localization ['zh_CN'] = {
     'form.file.apps.name' : "应用程式名称",
     'form.file.apps.pkg':"包裹ID",
     'form.file.apps.version' : "版本",
-		
+
     'form.group.name' : "名称",
     'form.group.name.placeholder':"输入组合名称",
 
@@ -597,11 +597,11 @@ document.localization ['zh_CN'] = {
     'form.user.password.new.placeholder' : "输入新的密码",
     'form.user.password.confirm' : "确认",
     'form.user.password.confirm.placeholder':"再次输入新密码",
-		
+
     'form.settings.hints.title':"提示",
-		
+
     'form.settings.plugins.title':"已经选用插件",
-		
+
     'form.settings.common.title':"设备表视图",
     'form.settings.common.visible.columns':"\"设备\"表中的可见列",
     'form.settings.common.status' : "状态",
@@ -641,7 +641,7 @@ document.localization ['zh_CN'] = {
     'form.settings.design.desktop.header':"桌面标题",
     'form.settings.design.desktop.header.no' : "没有",
     'form.settings.design.desktop.header.device.id' : "设备编号",
-		
+
     'form.settings.lang.title' : "语言设定",
     'form.settings.lang.use.default':"使用默认语言",
     'form.settings.lang.use':"使用语言",
@@ -688,7 +688,7 @@ document.localization ['zh_CN'] = {
 
     'form.settings.groups.title':"组合",
     'form.settings.groups.search.placeholder':"组合搜索",
-		
+
     'form.settings.users.title':"用户",
     'form.settings.users.search.placeholder':"搜索用户",
 
@@ -729,10 +729,10 @@ document.localization ['zh_CN'] = {
     'form.profile.password.new.placeholder' : "输入新的密码",
     'form.profile.password.confirm' : "确认",
     'form.profile.password.confirm.placeholder':"再次输入新密码",
-		
+
     'tab.customers':"组织",
     'tab.common.applications':"共享应用程式",
-		
+
     'tab.devices' : "设备",
     'tab.applications':"应用程式",
     'tab.configurations':"配置",
@@ -753,7 +753,7 @@ document.localization ['zh_CN'] = {
     'tab.configeditor.mdm.settings':"MDM设置",
     'tab.configeditor.app.settings':"应用程式设置",
     'tab.configeditor.files':"文档",
-		
+
     'search.placeholder.file':"搜索文档",
     'search.placeholder.configuration':"搜索配置",
     'search.placeholder.customer':"寻找组织",
@@ -767,7 +767,7 @@ document.localization ['zh_CN'] = {
     'search.placeholder.from':"由...",
     'search.placeholder.to' : "至 ...",
     'search.placeholder.user':"输入用户名",
-		
+
     'table.heading.customer.name' : "名称",
     'table.heading.customer.desc' : "资讯",
     'table.heading.customer.registration.time' : "註册",
@@ -777,7 +777,7 @@ document.localization ['zh_CN'] = {
     'table.heading.customer.expiry.time':"到期",
     'table.heading.customer.device.limit' : "限制",
     'table.heading.customer.status' : "状态",
-		
+
     'customer.new' : "全新",
     'customer.active' : "沟通中",
     'customer.need.followup':"需要跟进",
@@ -791,18 +791,18 @@ document.localization ['zh_CN'] = {
     'customer.onpremise': '内部试用',
     'customer.denial' : "谢绝",
     'customer.client' : "客户",
-		
+
     'table.heading.configuration.name' : "名称",
     'table.heading.configuration.desc' : "资讯",
     'table.heading.configuration.actions':"功能",
-		
+
     'table.heading.application.setting.app.pkg':"包裹ID",
     'table.heading.application.setting.app.name' : "应用程式名称",
     'table.heading.application.setting.name' : "属性",
     'table.heading.application.setting.value' : "值",
     'table.heading.application.setting.comment' : "备註",
     'table.heading.application.setting.lastUpdate' : "创建日期",
-		
+
     'table.heading.file.url':"URL",
     'table.heading.file.devicepath':"设备上的路径",
     'table.heading.file.description' : "文档资讯",
@@ -816,7 +816,7 @@ document.localization ['zh_CN'] = {
     'table.heading.application.label' : "图示",
     'table.heading.application.actions':"功能",
     'table.heading.application.order' : "排序",
-		
+
     'table.heading.device.status' : "状态",
     'table.heading.device.date' : "在线的",
     'table.heading.device.device.number' : "设备编号",
@@ -839,7 +839,7 @@ document.localization ['zh_CN'] = {
     'table.heading.device.serial': '序列号',
     'table.heading.device.publicip': 'IP地址',
     'table.heading.device.actions':"功能",
-		
+
     'table.heading.group.name' : "名称",
     'table.heading.group.actions':"功能",
 
@@ -851,12 +851,12 @@ document.localization ['zh_CN'] = {
     'table.heading.file.address' : "网址",
     'table.heading.file.size': '尺寸',
     'table.heading.file.actions':"功能",
-		
+
     'table.heading.users.login' : "登录",
     'table.heading.users.name' : "名称",
     'table.heading.users.role' : "角色",
     'table.heading.users.actions':"功能",
-		
+
     'table.heading.common.apps.customer' : "组织",
     'table.heading.common.apps.pkg':"包裹ID",
     'table.heading.common.apps.name' : "应用程式名称",
@@ -864,7 +864,7 @@ document.localization ['zh_CN'] = {
     'table.heading.common.apps.url':"URL",
     'table.heading.common.apps.label' : "图示",
     'table.heading.common.apps.actions':"功能",
-		
+
     'notfound.devices':"没有要显示的设备。",
     'notfound.files' : '文档列表为空。',
     'notfound.configurations' : "未找到配置。",
@@ -878,7 +878,7 @@ document.localization ['zh_CN'] = {
     'notfound.roles':'角色列表为空。',
 
     'format.date.header' : "HH:mm dd / MM / yyyy",
-		
+
     'menu.about' : "关於",
     'menu.profile':"个人资料",
     'menu.panel.master':"主面板",
@@ -887,7 +887,7 @@ document.localization ['zh_CN'] = {
     'menu.functions' : "其他功能",
     'menu.settings':"设置",
     'menu.show.hints':"显示提示",
-		
+
     'plugin.name.not.specified' : "<<未指定函数名称>>",
 
     'breadcrumb.summary': '摘要',
@@ -906,52 +906,52 @@ document.localization ['zh_CN'] = {
     'breadcrumb.plugins':"插件",
     'breadcrumb.config.details' : "详情",
     'breadcrumb.application.versions':"版本",
-		
+
     'app.name':"Headwind MDM",
     'app.vendor.name':"h-mdm.com",
     'app.vendor.link':"https://h-mdm.com",
     'app.description':"开源码流动设备管理系统",
     'app.title':"${appName} Web面板",
-		
+
     'box.show.my.apps.only':"仅显示我的应用程式",
     'configuration.app.version.upgrade.message':"已安装版本${installedVersion}，可用版本${latestVersion}",
-		
+
     'about.line.1':"${appName}控制面板",
     'about.line.2':"Android企业启动器",
     'about.line.3':"版本${versionNumber}",
     'about.line.4':"已安装的插件",
-		
+
     'common.app.clarification' : "该应用程式是公开的，无法进行编辑。要新增此应用的其他版本，请联繫管理员。",
-		
+
     'qrcode.help.line1' : "以託管（公司）模式设置Android设备（版本7或更高版本）",
     'qrcode.help.line2':"将设备重置为出厂设置",
     'qrcode.help.line3':"在开始屏幕的任何位置点击7次（您必须输入隐藏的QR码扫描模式）",
     'qrcode.help.line4' : "按照设备说明进行操作:接受条款，连接到Wi-Fi，扫描此QR码",
     'qrcode.help.line5':"QR码可能包含${appName}的设备ID（因此您无需在移动设备上输入它）。要将设备ID嵌入QR码，请在此屏幕上输入设备ID，然後单击\"续订\"。",
-		
+
     'form.configuration.app.version.select.select.title':"选择要安装的版本",
     'form.configuration.app.version.select.version.check.off':"禁用版本检查",
     'form.configuration.app.version.select.upgrade.warning' : "将配置\"${v2}\"的应用程式\"${v1}\"升级到版本\"${v3}\"吗？",
     'form.configuration.app.version.select.downgrade.warning' : "降级版本在所有设备上删除所有这些应用程式！是否将应用程式版本\"${v1}\"降级为版本\"${v2}\"？",
-		
+
     'hint.step.1':"点击此处开始设备註册",
     'hint.step.2':"点击此处打开QR码",
     'hint.step.3':"点击此处查看如何在设备上打开QR码扫描器",
     'hint.step.4' : "在\"Devices\"选项卡中找到可用的设备ID。点击窜改新坛以将其包含在QR码中。",
-		
+
     'ie.browser.notice.1':"很遗憾，不支持Internet Explorer。",
     'ie.browser.notice.2' : '推荐的浏览器，用於使用${appName}-<a href ="https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop">Chrome</a>.',
-		
+
     'form.resolved.duplicate.pkg.text1':"软件包ID\"${pkg}\"已被下列应用程式使用。",
     'form.resolved.duplicate.pkg.text2':"您要新增新应用程式还是现有应用程式的新版本？",
     'form.resolved.duplicate.pkg.text3':"新版本",
     'form.resolved.duplicate.pkg.text4':"程序包${apps}已使用包ID\"${pkg}\"",
     'form.resolved.duplicate.pkg.text5':"您确定要更改包裹ID吗？",
-		
+
     'tooltip.usage.byconfigurations':"由配置使用",
     'tooltip.usage.byapps':"由应用程式使用",
     'tooltip.usage.byicons':"由图示使用",
-		
+
     'form.devices.label.params.more':"更多参数",
     'form.devices.label.params.less':"参数较少",
     'form.devices.label.installation.status':"安装状态",
@@ -965,7 +965,7 @@ document.localization ['zh_CN'] = {
     'form.devices.selection.install.status.version.mismatch' : "版本不匹配",
     'form.devices.selection.install.status.failure' : "失败",
     'form.devices.selection.imei.changed':"IMEI最近发生了变化",
-		
+
     'search.placeholder.launcher.version':"启动器版本",
     'error.date.range.invalid':"无效的日期间隔",
 
@@ -1004,10 +1004,10 @@ document.localization ['zh_CN'] = {
     'customer.type.small' : "专业",
     'customer.type.corporate' : "企业",
     'customer.type.master' : "基本",
-		
+
     'customer.type.options.all' : "所有类型",
     'customer.status.options.all':"所有状态",
-		
+
     'account.expiring':"您的帐户将在${days}天后过期。请与卖家联繫以更新您的帐户。",
     'account.expired.short':"您的帐户已过期！",
     'account.expired' : "您的帐户已过期。请与卖家联繫以更新您的帐户。",
@@ -1069,6 +1069,22 @@ document.localization ['zh_CN'] = {
     'permission.files': '查看文件',
     'permission.edit_files': '管理文件',
 
+    'form.settings.locations.title': '地区',
+    'form.settings.locations.search.placeholder': '地区查询',
+    'form.location.name': '地区',
+    'form.location.name.placeholder': "输入地区名称",
+    'table.heading.location.code': '邮政编码',
+    'table.heading.location.name': '地区',
+    'table.heading.location.state': '市州',
+    'table.heading.location.latitude': '经度',
+    'table.heading.location.longitude': '纬度',
+    'table.heading.location.actions': '功能',
+    'notfound.locations':'找不到地区。尝试其他查询。',
+    'question.delete.location': "删除地区\"${locationName}\"？",
+    'error.notempty.location': "该地区包括一个或多个设备。您无法删除它。",
+    'error.empty.location.name': "填写地区名",
+    'error.duplicate.location.name': "输入的地区已经存在。尝试使用其他地区名称。",
+
     'yes' : 'yes',
     'no' : 'No'
-};		
+};

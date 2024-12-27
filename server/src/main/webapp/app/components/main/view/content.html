@@ -72,7 +72,12 @@
                     <ng-include src="plugin.settingsViewTemplate"
                                 ng-if="activeTab === ('plugin-settings-' + plugin.identifier)"></ng-include>
                 </tab>
-                
+
+                <tab  active="act.LOCATIONS" ng-click="openTab('LOCATIONS')">
+                    <tab-heading localized-change-tracking>tab.locations</tab-heading>
+                    <ng-include src="'app/components/main/view/settings/locations.html'" ng-if="activeTab === 'LOCATIONS'"></ng-include>
+                </tab>
+
             </ul>
         </li>
 
