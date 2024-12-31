@@ -111,7 +111,7 @@ public class LocationResource {
                     SecurityContext.get().getCurrentUserName());
             return Response.PERMISSION_DENIED();
         }
-        Location dbLocation = this.locationDAO.getLocationByCode(location.getCode());
+        Location dbLocation = this.locationDAO.getLocationById(location.getId());
         if (dbLocation != null && !dbLocation.getId().equals(dbLocation.getId())) {
             return Response.DUPLICATE_ENTITY("error.duplicate.location");
         } else {

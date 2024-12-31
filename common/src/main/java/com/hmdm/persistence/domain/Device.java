@@ -45,6 +45,8 @@ public class Device implements CustomerData, Serializable {
     private Long lastUpdate;
     @ApiModelProperty("An ID of configuration for device")
     private Integer configurationId;
+    @ApiModelProperty("An ID of location for device")
+    private Integer locationId;
     @ApiModelProperty(hidden = true)
     @Deprecated
     private Integer oldConfigurationId;
@@ -103,6 +105,10 @@ public class Device implements CustomerData, Serializable {
     private Long enrollTime;
     @ApiModelProperty(hidden = true)
     private String serial;
+    @ApiModelProperty(hidden = true)
+    private Location location;
+    @ApiModelProperty(hidden = true)
+    private String locationName;
 
     public Device() {
     }
@@ -361,6 +367,30 @@ public class Device implements CustomerData, Serializable {
         this.fastSearch = fastSearch;
     }
 
+    public Integer getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Integer locationId) {
+        this.locationId = locationId;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
     public void updateFastSearch(int chars) {
         if (number == null) {
             fastSearch = null;
@@ -407,6 +437,7 @@ public class Device implements CustomerData, Serializable {
                 ", statusCode='" + statusCode + '\'' +
                 ", oldNumber='" + oldNumber + '\'' +
                 ", fastSearch='" + fastSearch + '\'' +
+                ", locationId=" + locationId +
                 '}';
     }
 }

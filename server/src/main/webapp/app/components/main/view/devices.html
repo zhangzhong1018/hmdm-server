@@ -171,8 +171,14 @@
                    localized-placeholder='search.placeholder.device'
                    class='form-control'>
         </div>
-
-        <div class='col-sm-7 text-right margin-bottom'>
+        <div class="col-sm-4 margin-bottom">
+            <select class='form-control'
+                    ng-model='selection.locationId'
+                    ng-change='initSearch()'
+                    ng-options="location.id as location.name for location in locations">
+            </select>
+        </div>
+        <div class='col-sm-3 text-right margin-bottom'>
             <button type='button' class='btn btn-default' style="float: left" ng-click='initSearch()' localized>button.search</button>
 
             <input type="checkbox"
@@ -284,6 +290,11 @@
             <th ng-if="settings.columnDisplayedDeviceGroup" ng-click="sortData('GROUP')" class="pointer">
                 <span localized>table.heading.device.group</span>
                 <span ng-if='paging.sortBy === "GROUP"' class="glyphicon"
+                      ng-class="{'glyphicon-sort-by-alphabet': paging.sortAsc, 'glyphicon-sort-by-alphabet-alt': !paging.sortAsc}"></span>
+            </th>
+            <th ng-if="settings.columnDisplayedDeviceLocation" ng-click="sortData('LOCATION')" class="pointer">
+                <span localized>table.heading.device.location</span>
+                <span ng-if='paging.sortBy === "LOCATION"' class="glyphicon"
                       ng-class="{'glyphicon-sort-by-alphabet': paging.sortAsc, 'glyphicon-sort-by-alphabet-alt': !paging.sortAsc}"></span>
             </th>
             <th ng-if="settings.columnDisplayedLauncherVersion" ng-click="sortData('LAUNCHER_VERSION')" class="pointer">
@@ -398,6 +409,9 @@
             </td>
             <td ng-if="settings.columnDisplayedDeviceGroup">
                 <span ng-repeat="group in device.groups">{{group.name}}<br/></span>
+            </td>
+            <td ng-if="settings.columnDisplayedDeviceLocation">
+                <span>{{device.locations.name}}</span>
             </td>
             <td ng-if="settings.columnDisplayedLauncherVersion">
                 <span ng-style="{color: getDeviceLauncherVersionColor(device)}">{{getDeviceLauncherVersion(device)}}</span>

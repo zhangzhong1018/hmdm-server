@@ -34,7 +34,7 @@
                  LEFT JOIN deviceGroups ON devices.id = deviceGroups.deviceId
                  LEFT JOIN groups ON deviceGroups.groupId = groups.id
     </sql>
-    
+
     <resultMap id="deviceResult" type="Device">
         <result property="id" column="deviceId"/>
         <result property="number" column="number"/>
@@ -60,6 +60,8 @@
         <result property="custom3" column="custom3"/>
         <result property="oldNumber" column="oldNumber"/>
         <result property="fastSearch" column="fastSearch"/>
+        <result property="locationId" column="locationId"/>
+        <result property="locationName" column="locationName"/>
 
         <collection property="groups" ofType="com.hmdm.rest.json.LookupItem">
             <result property="id" column="groupId"/>
@@ -77,7 +79,7 @@
     <update id="updateDevice" parameterType="Device">
         UPDATE devices SET number = #{number}, description = #{description},
                            configurationId = #{configurationId}, imei = #{imei}, phone = #{phone},
-                           custom1=#{custom1}, custom2=#{custom2}, custom3=#{custom3},
+                           custom1=#{custom1}, custom2=#{custom2}, custom3=#{custom3},locationId = #{locationId},
                            oldNumber=#{oldNumber}, fastSearch=#{fastSearch} WHERE id = #{id}
     </update>
 
@@ -181,6 +183,11 @@
             configurations.id = #{configurationId}
             )
         </if>
+        <if test="locationId != null &amp;&amp; locationId > 0">
+            AND (
+            devices.locationid = #{locationId}
+            )
+        </if>
         <if test="dateFrom != null">
             AND (
             devices.lastUpdate &gt;= #{dateFromMillis}
@@ -253,6 +260,7 @@
                devices.infojson ->> 'serial' AS serial,
                devices.custom1, devices.custom2, devices.custom3, devices.oldNumber, devices.fastSearch,
                groups.id AS groupId, groups.name AS groupName,
+               devices.locationId, locations.name AS locationName,
                configurations.name as configName,
                applications.pkg AS launcherPkg,
                applicationVersions.version AS launcherVersion,
@@ -268,6 +276,7 @@
         LEFT JOIN groups ON deviceGroups.groupId = groups.id
         LEFT JOIN applicationVersions ON configurations.mainAppId = applicationVersions.id
         LEFT JOIN applications ON applications.id = applicationVersions.applicationid
+        LEFT JOIN locations ON locations.id = devices.locationid
         ORDER BY allowedDevices.sortingValue <if test="sortDir.equalsIgnoreCase(&quot;desc&quot;)">DESC</if>,
                  allowedDevices.searchPriority DESC, LOWER(devices.number), LOWER(groups.name);
     </select>
@@ -321,6 +330,11 @@
         <if test="configurationId != null &amp;&amp; configurationId > 0">
             AND (
             configurations.id = #{configurationId}
+            )
+        </if>
+        <if test="locationId != null &amp;&amp; locationId > 0">
+            AND (
+            devices.locationid = #{locationId}
             )
         </if>
         <if test="dateFrom != null">

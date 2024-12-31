@@ -50,7 +50,7 @@
                locations.latitude,
                locations.longitude
         FROM locations
-        WHERE locations.code=#{code}
+        WHERE locations.code like '%${code}%'
     </select>
 
     <select id="findById" resultMap="locationFull">

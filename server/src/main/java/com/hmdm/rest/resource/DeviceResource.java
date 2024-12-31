@@ -104,7 +104,10 @@ public class DeviceResource {
         Map<Integer, Configuration> configIdToConfigurationsMap = new HashMap<>();
         for (Device device : devices.getItems()) {
             final Integer deviceConfigurationId = device.getConfigurationId();
-
+            Location location = new Location();
+            location.setId(device.getLocationId());
+            location.setName(device.getLocationName());
+            device.setLocation(location);
             if (!configIdToApplicationsMap.containsKey(deviceConfigurationId)) {
                 configIdToApplicationsMap.put(deviceConfigurationId, this.configurationDAO.getConfigurationApplications(deviceConfigurationId));
             }
@@ -126,7 +129,7 @@ public class DeviceResource {
                 }
                 configuration.setApplications(configIdToApplicationsMap.get(deviceConfigurationId));
                 configuration.setFiles(configIdToFilesMap.get(deviceConfigurationId));
-                
+
                 configIdToConfigurationsMap.put(deviceConfigurationId, configuration);
             }
 

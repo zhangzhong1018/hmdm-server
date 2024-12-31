@@ -43,6 +43,9 @@ public class DeviceSearchRequest implements Serializable {
     @ApiModelProperty("An ID of a configuration to search devices for")
     private Integer configurationId;
 
+    @ApiModelProperty("An ID of a location to search devices for")
+    private Integer locationId;
+
     @ApiModelProperty(hidden = true)
     private int customerId;
 
@@ -331,6 +334,14 @@ public class DeviceSearchRequest implements Serializable {
 
     public void setFastSearch(boolean fastSearch) {
         this.fastSearch = fastSearch;
+    }
+
+    public Integer getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Integer locationId) {
+        this.locationId = locationId;
     }
 
     public long getDateFromMillis() {

@@ -557,6 +557,7 @@ document.localization ['zh_CN'] = {
     'form.device.desc' : "资讯",
     'form.device.groups':"组合",
     'form.device.config' : "配置",
+    'form.device.location' : "地区",
     'form.device.imei' : "IMEI",
     'form.device.phone.number' : "电话号码",
 
@@ -746,6 +747,7 @@ document.localization ['zh_CN'] = {
     'tab.license' : "软件许可證",
     'tab.hints':"提示",
     'tab.plugins':"插件",
+    'tab.locations': '地区',
 
     'tab.configeditor.common.settings':"通用设置",
     'tab.configeditor.design.settings':"设计设置",
@@ -829,6 +831,7 @@ document.localization ['zh_CN'] = {
     'table.heading.device.configuration' : "配置",
     'table.heading.device.desc' : "资讯",
     'table.heading.device.group' : "组合",
+    'table.heading.device.location' : "地区",
     'table.heading.device.launcher.version':"启动器版本",
     'table.heading.device.battery.level':"电池电量",
     'table.heading.device.default.launcher' : "设为默认启动器",
@@ -1069,6 +1072,13 @@ document.localization ['zh_CN'] = {
     'permission.files': '查看文件',
     'permission.edit_files': '管理文件',
 
+    'devices.location.options.all': '所有地区',
+    'form.settings.common.location': '地区',
+    'form.location.code': '邮政编码',
+    'form.location.state': '市州',
+    'form.location.code.placeholder': '输入地区邮政编码',
+    'form.location.state.placeholder': '输入地区市州',
+    'breadcrumb.locations': '地区',
     'form.settings.locations.title': '地区',
     'form.settings.locations.search.placeholder': '地区查询',
     'form.location.name': '地区',

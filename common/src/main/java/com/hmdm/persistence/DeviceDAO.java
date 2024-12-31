@@ -137,7 +137,6 @@ public class DeviceDAO extends AbstractDAO<Device> {
             request.setUserId(currentUser.getId());
             return this.mapper.getAllDevices(request);
         });
-
         if (!this.deviceListHooks.isEmpty()) {
             for (DeviceListHook hook : this.deviceListHooks) {
                 devices = hook.handle(devices);

@@ -2,7 +2,7 @@
 angular.module('headwind-kiosk')
     .controller('DevicesTabController', function ($scope, $rootScope, $state, $modal, $interval, $cookies, $window, $filter, $timeout,
                                                   confirmModal, deviceService, groupService, settingsService, hintService,
-                                                  authService, pluginService, configurationService, alertService,
+                                                  authService, pluginService, configurationService, alertService, locationService,
                                                   spinnerService, localization, utils) {
 
         var saveDeviceSearchParams = function() {
@@ -38,7 +38,8 @@ angular.module('headwind-kiosk')
             $scope.selection = {
                 all: false,
                 groupId: -1,
-                configurationId: -1
+                configurationId: -1,
+                locationId: -1
             };
 
             $scope.additionalParams = {
@@ -174,6 +175,11 @@ angular.module('headwind-kiosk')
             $scope.configurations.unshift({id: -1, name: localization.localize('devices.configuration.options.all')});
         });
 
+        locationService.getAllLocations(function (response) {
+            $scope.locations = response.data;
+            $scope.locations.unshift({id: -1, name: localization.localize('devices.location.options.all')});
+        });
+
         var loadCommonSettings = function(completion) {
             settingsService.getSettings({}, function(response) {
                 if (response.data) {
@@ -295,6 +301,7 @@ angular.module('headwind-kiosk')
                 value: $scope.searchParams.searchValue,
                 groupId: $scope.selection.groupId,
                 configurationId: $scope.selection.configurationId,
+                locationId: $scope.selection.locationId,
                 pageNum: $scope.paging.pageNum,
                 pageSize: $scope.paging.pageSize,
                 sortBy: $scope.paging.sortBy,
@@ -1060,7 +1067,7 @@ angular.module('headwind-kiosk')
         }
     })
     .controller('DeviceModalController',
-        function ($scope, $modalInstance, deviceService, configurationService, groupService, device, settings,
+        function ($scope, $modalInstance, deviceService, configurationService, groupService, device, settings, locationService,
                   localization, authService, confirmModal) {
 
             $scope.canEditDevice = authService.hasPermission('edit_devices');
@@ -1088,7 +1095,7 @@ angular.module('headwind-kiosk')
                 'dynamicButtonTextSuffix': localization.localize('table.filtering.suffix.group')
             };
 
-            var deviceFields = ["id", "number", "description", "configurationId", "imei", "phone", "groups", "custom1", "custom2", "custom3", "oldNumber"];
+            var deviceFields = ["id", "number", "description", "configurationId", "imei", "phone", "groups", "custom1", "custom2", "custom3", "oldNumber", "locationId"];
             $scope.device = {};
             for (var prop in device) {
                 if (device.hasOwnProperty(prop)) {
@@ -1176,6 +1183,10 @@ angular.module('headwind-kiosk')
             groupService.getAllGroups(function (response) {
                 $scope.groups = response.data;
             });
+
+            locationService.getAllLocations(function (response) {
+                $scope.locations = response.data;
+            });
         })
     .controller('DeviceApplicationSettingsModalController', function ($scope, $modal, $modalInstance,
                                                                       localization, deviceService,
@@ -1226,7 +1237,7 @@ angular.module('headwind-kiosk')
         };
 
         $scope.getAppSettingsApps = getAppSettingsApps;
-        
+
         $scope.onAppSettingsFilterAppSelected = function ($item) {
             $scope.settingsPaging.appSettingsFilterApp = $item;
             $scope.settingsPaging.appSettingsAppFilterText = $item.pkg;

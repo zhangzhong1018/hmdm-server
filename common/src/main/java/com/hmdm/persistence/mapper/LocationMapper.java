@@ -30,7 +30,7 @@ public interface LocationMapper {
 
     List<Location> findAll();
 
-    Location findByCode(@Param("code") String code);
+    List<Location> findByCode(@Param("code") String code);
 
     Location findById(@Param("id") Integer id);
 

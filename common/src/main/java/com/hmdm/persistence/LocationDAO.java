@@ -70,7 +70,7 @@ public class LocationDAO{
         return mapper.findAll();
     }
 
-    public Location getLocationByCode(String code) {
+    public List<Location> getLocationByCode(String code) {
         checkAccess();
         return mapper.findByCode(code);
     }

@@ -557,6 +557,7 @@ document.localization ['en_US'] = {
     'form.device.desc': 'Description',
     'form.device.groups': 'Groups',
     'form.device.config': 'Configuration',
+    'form.device.location': 'Location',
     'form.device.imei': 'IMEI',
     'form.device.phone.number': 'Phone Number',
 
@@ -746,6 +747,7 @@ document.localization ['en_US'] = {
     'tab.license': 'License',
     'tab.hints': 'Hints',
     'tab.plugins': 'Plugins',
+    'tab.locations': 'Locations',
 
     'tab.configeditor.common.settings': 'Common settings',
     'tab.configeditor.design.settings': 'Design Settings',
@@ -829,6 +831,7 @@ document.localization ['en_US'] = {
     'table.heading.device.configuration': 'Configuration',
     'table.heading.device.desc': 'Description',
     'table.heading.device.group': 'Group',
+    'table.heading.device.location': 'Location',
     'table.heading.device.launcher.version': 'Launcher version',
     'table.heading.device.battery.level': 'Battery level',
     'table.heading.device.default.launcher': 'Set as default',
@@ -1068,6 +1071,13 @@ document.localization ['en_US'] = {
     'permission.files': 'View files',
     'permission.edit_files': 'Manage files',
 
+    'devices.location.options.all': 'All locations',
+    'form.settings.common.location': 'Location',
+    'form.location.code': 'Zip Code',
+    'form.location.state': 'State',
+    'form.location.code.placeholder': 'Enter the zip code of the location',
+    'form.location.state.placeholder': 'Enter the state of the location',
+    'breadcrumb.locations': 'Locations',
     'form.settings.locations.title': 'Locations',
     'form.settings.locations.search.placeholder': 'Location search',
     'form.location.name': 'Name',

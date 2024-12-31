@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hmdm.persistence.domain.Configuration;
 import com.hmdm.persistence.domain.Device;
+import com.hmdm.persistence.domain.Location;
 import com.hmdm.rest.json.DeviceInfo;
 import com.hmdm.rest.json.LookupItem;
 import io.swagger.annotations.ApiModel;
@@ -95,6 +96,11 @@ public class DeviceView {
         return device.getConfigurationId();
     }
 
+    @ApiModelProperty("An ID of location for device")
+    public Integer getLocationId() {
+        return device.getLocationId();
+    }
+
     @ApiModelProperty("An unique textual identifier of device")
     public String getNumber() {
         return device.getNumber();
@@ -148,6 +154,11 @@ public class DeviceView {
     @ApiModelProperty("A list of groups assigned to device")
     public List<LookupItem> getGroups() {
         return device.getGroups();
+    }
+
+    @ApiModelProperty("A list of locations assigned to device")
+    public Location getLocations() {
+        return device.getLocation();
     }
 
     @ApiModelProperty("A flag indicating if MDM mode is activated on the device")
