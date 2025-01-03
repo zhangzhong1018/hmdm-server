@@ -17,7 +17,7 @@ UPDATE plugins SET name='Images', description='Retrieve images from devices' WHE
 
 INSERT INTO settings (id, backgroundcolor, textcolor, backgroundimageurl, iconsize, desktopheader, customerid, usedefaultlanguage, language) VALUES (1, '#678ca6', '#ffffff', NULL, 'SMALL', 'NO_HEADER', 1, true, NULL);
 
-INSERT INTO userrolesettings (id, roleid, customerid, columndisplayeddevicestatus, columndisplayeddevicedate, columndisplayeddevicenumber, columndisplayeddevicemodel, columndisplayeddevicepermissionsstatus, columndisplayeddeviceappinstallstatus, columndisplayeddeviceconfiguration, columndisplayeddeviceimei, columndisplayeddevicephone, columndisplayeddevicedesc, columndisplayeddevicegroup, columndisplayedlauncherversion) VALUES 
+INSERT INTO userrolesettings (id, roleid, customerid, columndisplayeddevicestatus, columndisplayeddevicedate, columndisplayeddevicenumber, columndisplayeddevicemodel, columndisplayeddevicepermissionsstatus, columndisplayeddeviceappinstallstatus, columndisplayeddeviceconfiguration, columndisplayeddeviceimei, columndisplayeddevicephone, columndisplayeddevicedesc, columndisplayeddevicegroup, columndisplayedlauncherversion) VALUES
 (1, 1, 1, true, true, true, NULL, true, true, true, NULL, NULL, NULL, NULL, NULL),
 (2, 2, 1, true, true, true, NULL, true, true, true, NULL, NULL, NULL, NULL, NULL),
 (3, 3, 1, true, true, true, NULL, true, true, true, NULL, NULL, NULL, NULL, NULL),
@@ -27,7 +27,7 @@ SELECT pg_catalog.setval('public.settings_id_seq', 1, true);
 
 ALTER TABLE applications DROP CONSTRAINT applications_latestversion_fkey;
 
-INSERT INTO applications (id, pkg, name, showicon, customerid, system, latestversion, runafterinstall) VALUES 
+INSERT INTO applications (id, pkg, name, showicon, customerid, system, latestversion, runafterinstall) VALUES
     (1, 'com.android.systemui', 'System UI', false, 1, true, 10000, false),
     (2, 'com.android.bluetooth', 'Bluetooth Service', false, 1, true, 10001, false),
     (3, 'com.google.android.gms', 'Google Services', false, 1, true, 10002, false),
@@ -127,7 +127,7 @@ INSERT INTO applications (id, pkg, name, showicon, customerid, system, latestver
 
 SELECT pg_catalog.setval('public.applications_id_seq', 99, true);
 
-INSERT INTO applicationversions (id, applicationid, version, url) VALUES 
+INSERT INTO applicationversions (id, applicationid, version, url) VALUES
     (10000, 1, '0', NULL),
     (10001, 2, '0', NULL),
     (10002, 3, '0', NULL),
@@ -224,20 +224,20 @@ INSERT INTO applicationversions (id, applicationid, version, url) VALUES
     (10097, 97, '0', NULL),
     (10098, 98, '0', NULL),
     (10099, 99, '0', NULL);
-    
+
 SELECT pg_catalog.setval('public.applicationversions_id_seq', 10099, true);
 
 ALTER TABLE applications ADD CONSTRAINT applications_latestversion_fkey FOREIGN KEY (latestversion) REFERENCES applicationversions(id) ON DELETE SET NULL;
-    
+
 DELETE FROM configurations;
-INSERT INTO configurations (id, name, description, type, password, backgroundcolor, textcolor, backgroundimageurl, iconsize, desktopheader, usedefaultdesignsettings, customerid, gps, bluetooth, wifi, mobiledata, mainappid, eventreceivingcomponent, kioskmode, qrcodekey, contentappid,autoupdate, blockstatusbar, systemupdatetype, systemupdatefrom, systemupdateto, pushoptions, keepalivetime, rundefaultlauncher, permissive, kioskexit) VALUES 
+INSERT INTO configurations (id, name, description, type, password, backgroundcolor, textcolor, backgroundimageurl, iconsize, desktopheader, usedefaultdesignsettings, customerid, gps, bluetooth, wifi, mobiledata, mainappid, eventreceivingcomponent, kioskmode, qrcodekey, contentappid,autoupdate, blockstatusbar, systemupdatetype, systemupdatefrom, systemupdateto, pushoptions, keepalivetime, rundefaultlauncher, permissive, kioskexit) VALUES
 (1, 'Managed Launcher', 'Displays a set of application icons predefined by the administrator. To show or hide applications, use the Applications tab.', 0, '12345678', '', '', NULL, 'SMALL', 'NO_HEADER', true, 1, NULL, NULL, NULL, NULL, 10045, 'com.hmdm.launcher.AdminReceiver', false, '6fb9c8dc81483173a0c0e9f8b2e46be1', NULL, false, false, 0, NULL, NULL, 'mqttAlarm', 300, NULL, NULL, true),
 (2, 'MIUI (Xiaomi Redmi)', 'Optimized for MIUI-running devices', 0, '12345678', '', '', NULL, 'SMALL', 'NO_HEADER', true, 1, NULL, NULL, NULL, NULL, 10045, 'com.hmdm.launcher.AdminReceiver', false, '8e6ca072ddb926a1af61578dfa9fc334', NULL, false, false, 0, NULL, NULL, 'mqttAlarm', 300, NULL, NULL, true),
 (3, 'Background (Agent) Mode', 'Headwind MDM is running in the background, it is used to install apps and track the device status. User can do everything (permissive mode).', 0, '12345678', '', '', NULL, 'SMALL', 'NO_HEADER', true, 1, NULL, NULL, NULL, NULL, 10045, 'com.hmdm.launcher.AdminReceiver', false, '350e0fb7fc3f4b7fe61cac75fd43818f', NULL, false, false, 0, NULL, NULL, 'mqttAlarm', 300, true, true, true);
 
 SELECT pg_catalog.setval('public.configurations_id_seq', 3, true);
 
-INSERT INTO configurationapplications (id, configurationid, applicationid, remove, showicon, applicationversionid) VALUES 
+INSERT INTO configurationapplications (id, configurationid, applicationid, remove, showicon, applicationversionid) VALUES
     (2, 1, 8, false, true, 10007),
     (3, 1, 37, false, false, 10036),
     (4, 1, 2, false, false, 10001),
@@ -344,7 +344,7 @@ INSERT INTO configurationapplications (id, configurationid, applicationid, remov
     (106, 1, 94, false, false, 10094),
     (107, 1, 95, false, false, 10095),
     (108, 1, 99, false, false, 10099),
-	
+
 	(200, 3, 8, false, true, 10007),
     (201, 3, 37, false, false, 10036),
     (202, 3, 2, false, false, 10001),
@@ -417,7 +417,7 @@ INSERT INTO configurationapplications (id, configurationid, applicationid, remov
     (269, 3, 94, false, false, 10094),
     (270, 3, 95, false, false, 10095),
     (271, 3, 99, false, false, 10099);
-    
+
 SELECT pg_catalog.setval('public.configurationapplications_id_seq', 271, true);
 
 INSERT INTO devices (id, number, description, lastupdate, configurationid, oldconfigurationid, info, imei, phone, customerid) VALUES (1, 'h0001', 'My first Android device', 0, 1, NULL, NULL, NULL, NULL, 1);
@@ -426,4 +426,58 @@ SELECT pg_catalog.setval('public.devices_id_seq', 1, true);
 
 INSERT INTO plugin_devicelog_settings_rules (id, settingid, name, active, applicationid, severity) VALUES (1, 1, 'Headwind MDM', true, 46, 'VERBOSE');
 SELECT pg_catalog.setval('public.plugin_devicelog_settings_rules_id_seq', 1, true);
+
+
+CREATE SEQUENCE locations_id_seq START 1;
+CREATE TABLE "public"."locations" (
+      "id" int4 NOT NULL DEFAULT nextval('locations_id_seq'::regclass),
+      "code" varchar(10) COLLATE "pg_catalog"."default",
+      "name" varchar(255) COLLATE "pg_catalog"."default",
+      "state" varchar(255) COLLATE "pg_catalog"."default",
+      "latitude" numeric(10,2),
+      "longitude" numeric(10,2),
+      CONSTRAINT "locations_pkey" PRIMARY KEY ("id")
+);
+ALTER TABLE "public"."locations" OWNER TO "hmdm";
+
+INSERT INTO "public"."locations" VALUES (1, '50000', 'Kuala Lumpur', 'Kuala Lumpur', 3.1383, 101.6873);
+INSERT INTO "public"."locations" VALUES (2, '41000', 'Klang', 'Selangor', 3.0349, 101.5119);
+INSERT INTO "public"."locations" VALUES (3, '10200', 'George Town', 'Penang', 5.4141, 100.3292);
+INSERT INTO "public"."locations" VALUES (4, '80000', 'Johor Bahru', 'Johor', 1.4556, 103.7578);
+INSERT INTO "public"."locations" VALUES (5, '88000', 'Kota Kinabalu', 'Sabah', 5.9784, 116.0740);
+INSERT INTO "public"."locations" VALUES (6, '93000', 'Kuching', 'Sarawak', 1.5533, 110.3593);
+INSERT INTO "public"."locations" VALUES (7, '30000', 'Ipoh', 'Perak', 4.5975, 101.0901);
+INSERT INTO "public"."locations" VALUES (8, '70000', 'Seremban', 'Negeri Sembilan', 2.7297, 101.9381);
+INSERT INTO "public"."locations" VALUES (9, '75000', 'Malacca City', 'Malacca', 2.1889, 102.2510);
+INSERT INTO "public"."locations" VALUES (10, '20000', 'Kuala Terengganu', 'Terengganu', 5.3302, 103.1408);
+INSERT INTO "public"."locations" VALUES (11, '05000', 'Alor Setar', 'Kedah', 6.1210, 100.3601);
+INSERT INTO "public"."locations" VALUES (12, '15000', 'Kota Bharu', 'Kelantan', 6.1254, 102.2381);
+INSERT INTO "public"."locations" VALUES (13, '25000', 'Kuantan', 'Pahang', 3.8077, 103.3260);
+INSERT INTO "public"."locations" VALUES (14, '01000', 'Kangar', 'Perlis', 6.4414, 100.1986);
+INSERT INTO "public"."locations" VALUES (15, '91000', 'Tawau', 'Sabah', 4.2583, 117.8944);
+
+ALTER TABLE "public"."devices" ADD COLUMN locationid int4;
+
+ALTER TABLE "public"."userrolesettings" ADD COLUMN columndisplayeddevicelocation bool;
+
+CREATE SEQUENCE broadcasts_id_seq START 1;
+CREATE TABLE "public"."broadcasts" (
+       "id" int4 NOT NULL DEFAULT nextval('broadcasts_id_seq'::regclass),
+       "type" int4,
+       "number" varchar(10),
+       "subject" varchar(255) COLLATE "pg_catalog"."default",
+       "description" varchar(1024) COLLATE "pg_catalog"."default",
+       "lecturer" varchar(255) COLLATE "pg_catalog"."default",
+       "attendees" varchar(512) COLLATE "pg_catalog"."default",
+       "starttime" int8,
+       CONSTRAINT "broadcasts_pkey" PRIMARY KEY ("id")
+);
+
+CREATE SEQUENCE broadcastdevices_id_seq START 1;
+CREATE TABLE "public"."broadcastdevices" (
+         "id" int4 NOT NULL DEFAULT nextval('broadcastdevices_id_seq'::regclass),
+         "broadcastid" int4 NOT NULL,
+         "deviceid" int4 NOT NULL,
+         CONSTRAINT "broadcastdevices_pkey" PRIMARY KEY ("id")
+);
 
