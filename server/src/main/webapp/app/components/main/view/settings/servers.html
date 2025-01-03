@@ -1,0 +1,36 @@
+<!-- Localization completed -->
+<div class="width-1000" ng-controller="SettingsTabController">
+    <div class="text-center">
+        <h4 localized>form.settings.servers.title</h4>
+    </div>
+
+    <div>
+        <form class='form-horizontal'>
+            <div class='form-group'>
+                <div ng-show='successMessage' class='success'><span>{{successMessage}}</span></div>
+            </div>
+
+            <div class='form-group'>
+                <label class='col-sm-3 control-label' localized>form.settings.servers.broadcast</label>
+                <div class='col-sm-9'>
+                    <input ng-model='settings.broadcastServer' type='text' class='form-control'
+                           localized-placeholder='form.settings.servers.broadcast.placeholder'/>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-sm-3 control-label' localized>form.settings.servers.meeting</label>
+                <div class='col-sm-9'>
+                    <input ng-model='settings.meetingServer' type='text' class='form-control'
+                           localized-placeholder='form.settings.servers.meeting.placeholder'/>
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <div class='col-sm-offset-3 col-sm-9 padding-left'>
+                    <button type='submit' class='btn btn-default' ng-click='saveServicesSettings()'
+                            localized>button.save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

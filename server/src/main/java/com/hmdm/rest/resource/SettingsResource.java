@@ -146,6 +146,31 @@ public class SettingsResource {
 
     // =================================================================================================================
     @ApiOperation(
+            value = "Save services",
+            notes = "Save the settings for services for application",
+            response = Settings.class
+    )
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/servers")
+    public Response updateServersSettings(Settings settings) {
+        if (!SecurityContext.get().hasPermission("settings")) {
+            log.error("Unauthorized attempt to update settings by user " +
+                    SecurityContext.get().getCurrentUserName());
+            return Response.PERMISSION_DENIED();
+        }
+        try {
+            this.commonDAO.saveServersSettings(settings);
+            return Response.OK();
+        } catch (Exception e) {
+            log.error("Unexpected error when saving services settings", e);
+            return Response.INTERNAL_ERROR();
+        }
+    }
+
+    // =================================================================================================================
+    @ApiOperation(
             value = "Save user role common settings",
             notes = "Save the settings for user roles",
             response = Settings.class

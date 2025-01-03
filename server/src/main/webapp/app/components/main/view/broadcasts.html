@@ -1,0 +1,82 @@
+<!-- Localization completed -->
+<div ng-controller="BroadcastTabController">
+
+    <div class='form-group'>
+        <input type='text' ng-model='search.searchValue' ng-enter='search()'
+               localized-placeholder='form.settings.broadcasts.search.placeholder'
+               class='form-control configurations-search-input'/>
+
+        <div class='configurations-search-buttons'>
+            <button type='button' class='btn btn-default' ng-click='search()' localized>button.search</button>
+            <button type='button' class='btn btn-default' ng-click='editBroadcast( {} )' localized>button.add</button>
+        </div>
+    </div>
+
+    <div class="text-center" ng-if="broadcasts.length > paging.pageSize">
+        <pagination
+                boundary-links='true' class='pagination-sm'
+                max-size='3'
+                ng-model='paging.currentPage'
+                total-items='broadcasts.length'
+                items-per-page='paging.pageSize'
+                previous-text='&lsaquo;' next-text='&rsaquo;' first-text='&laquo;'
+                last-text='&raquo;'></pagination>
+    </div>
+
+    <table ng-if='broadcasts && broadcasts.length > 0' class='table'>
+        <thead>
+        <tr>
+            <th localized>table.heading.broadcasts.type</th>
+            <th localized>table.heading.broadcasts.number</th>
+            <th localized>table.heading.broadcasts.subject</th>
+            <th localized>table.heading.broadcasts.description</th>
+            <th localized>table.heading.broadcasts.startTime</th>
+            <th localized>table.heading.broadcasts.lecturer</th>
+            <th localized>table.heading.broadcasts.attendees</th>
+            <th localized>table.heading.broadcasts.devices</th>
+            <th class='actions-column' localized>table.heading.broadcasts.actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat='broadcast in broadcasts.slice(((paging.currentPage-1)*paging.pageSize), ((paging.currentPage)*paging.pageSize))'>
+            <td>
+                <span ng-if="broadcast.type == 1" localized>form.broadcast.type.option.broadcast</span>
+                <span ng-if="broadcast.type == 2" localized>form.broadcast.type.option.meeting</span>
+            </td>
+            <td>{{broadcast.number}}</td>
+            <td>{{broadcast.subject}}</td>
+            <td>{{broadcast.description}}</td>
+            <td>{{broadcast.startTime * 1000 | date:dateFormat}}</td>
+            <td>{{broadcast.lecturer}}</td>
+            <td>{{broadcast.attendees}}</td>
+            <td><span ng-repeat="device in broadcast.devices">{{device.name}}<br/></span></td>
+            <td>
+                <div>
+                    <button type='button' class='btn btn-default' ng-click='editBroadcast( broadcast )'>
+                        <span class='glyphicon glyphicon-pencil'></span>
+                    </button>
+                    <button type='button'
+                            class='btn btn-default'
+                            ng-disabled='broadcast.id === 1'
+                            ng-click='removeBroadcast( broadcast )'>
+                        <span class='glyphicon glyphicon-trash'></span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div ng-if='broadcasts && broadcasts.length === 0' class='center' localized>notfound.broadcasts</div>
+
+    <div class="text-center" ng-if="broadcasts.length > paging.pageSize">
+        <pagination
+                boundary-links='true' class='pagination-sm'
+                max-size='3'
+                ng-model='paging.currentPage'
+                total-items='broadcasts.length'
+                items-per-page='paging.pageSize'
+                previous-text='&lsaquo;' next-text='&rsaquo;' first-text='&laquo;'
+                last-text='&raquo;'></pagination>
+    </div>
+</div>

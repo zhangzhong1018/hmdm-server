@@ -46,6 +46,7 @@ angular.module('headwind-kiosk')
             getSettings: {url: 'rest/private/settings', method: 'GET'},
             getUserRoleSettings: {url: 'rest/private/settings/userRole/:roleId', method: 'GET'},
             updateDefaultDesignSettings: {url: 'rest/private/settings/design', method: 'POST'},
+            updateServicesSettings: {url: 'rest/private/settings/servers', method: 'POST'},
             updateUserRolesCommonSettings: {url: 'rest/private/settings/userRoles/common', method: 'POST'},
             updateMiscSettings: {url: 'rest/private/settings/misc', method: 'POST'},
             updateLanguageSettings: {url: 'rest/private/settings/lang', method: 'POST'},
@@ -94,6 +95,14 @@ angular.module('headwind-kiosk')
             getLocation: {url: 'rest/private/locations/:id', method: 'GET'},
             updateLocation: {url: 'rest/private/locations', method: 'PUT'},
             removeLocation: {url: 'rest/private/locations/:id', method: 'DELETE'}
+        })
+    })
+    .factory('broadcastService', function ($resource) {
+        return $resource('', {}, {
+            getAllBroadcasts: {url: 'rest/private/broadcasts/search/:value', method: 'GET'},
+            getBroadcast: {url: 'rest/private/broadcasts/:id', method: 'GET'},
+            updateBroadcast: {url: 'rest/private/broadcasts', method: 'PUT'},
+            removeBroadcast: {url: 'rest/private/broadcasts/:id', method: 'DELETE'}
         })
     })
     .factory('roleService', function ($resource) {

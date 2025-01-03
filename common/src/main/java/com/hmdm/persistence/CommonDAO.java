@@ -32,7 +32,7 @@ import com.hmdm.security.SecurityException;
 
 @Singleton
 public class CommonDAO extends AbstractDAO<Settings> {
-    
+
     private final CommonMapper mapper;
     private final CustomerMapper customerMapper;
     private final DeviceMapper deviceMapper;
@@ -71,6 +71,10 @@ public class CommonDAO extends AbstractDAO<Settings> {
 
     public void saveDefaultDesignSettings(Settings settings) {
         insertRecord(settings, this.mapper::saveDefaultDesignSettings);
+    }
+
+    public void saveServersSettings(Settings settings) {
+        insertRecord(settings, this.mapper::saveServersSettings);
     }
 
     public void saveLanguageSettings(Settings settings) {

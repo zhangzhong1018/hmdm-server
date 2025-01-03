@@ -240,6 +240,28 @@ angular.module('headwind-kiosk',
                     openTab: function () {return "LOCATIONS"}
                 }
             })
+            .state('servers', {
+                url: '/servers',
+                templateUrl: 'app/components/main/view/content.html',
+                controller: 'TabController',
+                ncyBreadcrumb: {
+                    label: '{{"breadcrumb.servers" | localize}}' //label to show in breadcrumbs
+                },
+                resolve: {
+                    openTab: function () {return "SERVERS"}
+                }
+            })
+            .state('broadcasts', {
+                url: '/broadcasts',
+                templateUrl: 'app/components/main/view/content.html',
+                controller: 'TabController',
+                ncyBreadcrumb: {
+                    label: '{{"breadcrumb.broadcasts" | localize}}' //label to show in breadcrumbs
+                },
+                resolve: {
+                    openTab: function () {return "BROADCASTS"}
+                }
+            })
             .state('hints', {
                 url: '/hints',
                 templateUrl: 'app/components/main/view/content.html',

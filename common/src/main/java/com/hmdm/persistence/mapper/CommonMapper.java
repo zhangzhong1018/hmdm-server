@@ -73,6 +73,23 @@ public interface CommonMapper {
 
     @Insert({
             "INSERT INTO settings (" +
+                    "broadcastServer, " +
+                    "meetingServer, " +
+                    "customerId" +
+                    ") VALUES (" +
+                    "#{broadcastServer}, " +
+                    "#{meetingServer}, " +
+                    "#{customerId}" +
+                    ") " +
+                    "ON CONFLICT ON CONSTRAINT settings_customer_unique DO " +
+                    "UPDATE SET " +
+                    "broadcastServer = EXCLUDED.broadcastServer, " +
+                    "meetingServer = EXCLUDED.meetingServer"
+    })
+    void saveServersSettings(Settings settings);
+
+    @Insert({
+            "INSERT INTO settings (" +
                     "useDefaultLanguage, " +
                     "language, " +
                     "customerId" +

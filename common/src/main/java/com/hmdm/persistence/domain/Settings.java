@@ -98,6 +98,10 @@ public class Settings implements CustomerData, Serializable {
     private boolean twoFactor;
     @ApiModelProperty("Timeout in seconds for logging out while idle (0 - no logout)")
     private Integer idleLogout;
+    @ApiModelProperty("Broadcast Server")
+    private String broadcastServer;
+    @ApiModelProperty("Meeting Server")
+    private String meetingServer;
 
     // This property is not stored in the database, it is a transient field used by the Settings resource
     @ApiModelProperty(hidden = true)
@@ -398,6 +402,22 @@ public class Settings implements CustomerData, Serializable {
         this.sizeLimit = sizeLimit;
     }
 
+    public String getBroadcastServer() {
+        return broadcastServer;
+    }
+
+    public void setBroadcastServer(String broadcastServer) {
+        this.broadcastServer = broadcastServer;
+    }
+
+    public String getMeetingServer() {
+        return meetingServer;
+    }
+
+    public void setMeetingServer(String meetingServer) {
+        this.meetingServer = meetingServer;
+    }
+
     @Override
     public String toString() {
         return "Settings{" +
@@ -423,6 +443,8 @@ public class Settings implements CustomerData, Serializable {
                 ", deviceLimit=" + deviceLimit +
                 ", deviceCount=" + deviceCount +
                 ", sizeLimit=" + sizeLimit +
+                ", broadcastServer='" + broadcastServer + '\'' +
+                ", meetingServer='" + meetingServer + '\'' +
                 '}';
     }
 }

@@ -17,12 +17,12 @@
             </div>
         </div>
 
-        <div class="text-center" ng-if="groups.length > paging.pageSize">
+        <div class="text-center" ng-if="locations.length > paging.pageSize">
             <pagination
                     boundary-links='true' class='pagination-sm'
                     max-size='3'
                     ng-model='paging.currentPage'
-                    total-items='groups.length'
+                    total-items='locations.length'
                     items-per-page='paging.pageSize'
                     previous-text='&lsaquo;' next-text='&rsaquo;' first-text='&laquo;'
                     last-text='&raquo;'></pagination>

@@ -21,12 +21,10 @@
 
 package com.hmdm.rest.resource;
 
-import com.hmdm.persistence.LocationDAO;
+import com.hmdm.persistence.BroadcastDAO;
 import com.hmdm.persistence.UserDAO;
 import com.hmdm.persistence.domain.Group;
-import com.hmdm.persistence.domain.Location;
-import com.hmdm.persistence.domain.User;
-import com.hmdm.rest.json.LookupItem;
+import com.hmdm.persistence.domain.Broadcast;
 import com.hmdm.rest.json.Response;
 import com.hmdm.security.SecurityContext;
 import io.swagger.annotations.Api;
@@ -40,32 +38,30 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
-import java.util.stream.Collectors;
 
-@Api(tags = {"Device Location"}, authorizations = {@Authorization("Bearer Token")})
+@Api(tags = {"Broadcast meeting"}, authorizations = {@Authorization("Bearer Token")})
 @Singleton
-@Path("/private/locations")
-public class LocationResource {
+@Path("/private/broadcasts")
+public class BroadcastResource {
     private UserDAO userDAO;
-    private LocationDAO locationDAO;
+    private BroadcastDAO broadcastDAO;
 
     /**
      * <p>A logger to be used for logging the events.</p>
      */
-    private static final Logger log = LoggerFactory.getLogger(LocationResource.class);
+    private static final Logger log = LoggerFactory.getLogger(BroadcastResource.class);
 
     /**
      * <p>A constructor required by Swagger.</p>
      */
-    public LocationResource() {
+    public BroadcastResource() {
     }
 
     @Inject
-    public LocationResource(LocationDAO locationDAO,
-                            UserDAO userDAO) {
+    public BroadcastResource(BroadcastDAO broadcastDAO,
+                             UserDAO userDAO) {
         this.userDAO = userDAO;
-        this.locationDAO = locationDAO;
+        this.broadcastDAO = broadcastDAO;
     }
 
     // =================================================================================================================
@@ -79,7 +75,7 @@ public class LocationResource {
     @Path("/search")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllLocations() {
-        return Response.OK(this.locationDAO.getAllLocations());
+        return Response.OK(this.broadcastDAO.getAllBroadcasts());
     }
 
     // =================================================================================================================
@@ -93,7 +89,7 @@ public class LocationResource {
     @Path("/search/{value}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response searchGroups(@PathParam("value") @ApiParam("A filter value") String value) {
-        return Response.OK(this.locationDAO.getLocationByCode(value));
+        return Response.OK(this.broadcastDAO.getBroadcastByCode(value));
     }
 
 
@@ -105,20 +101,20 @@ public class LocationResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateLocation(Location location) {
+    public Response updateLocation(Broadcast broadcast) {
         if (!SecurityContext.get().hasPermission("settings")) {
             log.error("Unauthorized attempt to update groups by user " +
                     SecurityContext.get().getCurrentUserName());
             return Response.PERMISSION_DENIED();
         }
-        Location dbLocation = this.locationDAO.getLocationById(location.getId());
-        if (dbLocation != null && !dbLocation.getId().equals(dbLocation.getId())) {
-            return Response.DUPLICATE_ENTITY("error.duplicate.location");
+        Broadcast dbBroadcast = this.broadcastDAO.getBroadcastById(broadcast.getId());
+        if (dbBroadcast != null && !dbBroadcast.getId().equals(dbBroadcast.getId())) {
+            return Response.DUPLICATE_ENTITY("error.duplicate.broadcast");
         } else {
-            if (location.getId() == null) {
-                this.locationDAO.insertLocation(location);
+            if (broadcast.getId() == null) {
+                this.broadcastDAO.insertBroadcast(broadcast);
             } else {
-                this.locationDAO.updateLocation(location);
+                this.broadcastDAO.updateBroadcast(broadcast);
             }
             return Response.OK();
         }
@@ -138,7 +134,7 @@ public class LocationResource {
                     SecurityContext.get().getCurrentUserName());
             return Response.PERMISSION_DENIED();
         }
-        this.locationDAO.removeLocationById(id);
+        this.broadcastDAO.removeBroadcastById(id);
         return Response.OK();
     }
 }

@@ -26,6 +26,12 @@
             <ng-include src="'app/components/main/view/files.html'" ng-if="activeTab === 'FILES'"></ng-include>
         </tab>
 
+
+        <tab active="act.BROADCASTS" ng-click="openTab('BROADCASTS')">
+            <tab-heading localized-change-tracking>tab.broadcasts</tab-heading>
+            <ng-include src="'app/components/main/view/broadcasts.html'" ng-if="activeTab === 'BROADCASTS'"></ng-include>
+        </tab>
+
         <li ng-if="hasPermission('settings')"
                 class="dropdown" ng-class="{'active': settingsTabActive}">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span localized-change-tracking>menu.settings</span><span class="caret"></span></a>
@@ -66,6 +72,10 @@
                     <tab-heading localized-change-tracking>tab.locations</tab-heading>
                     <ng-include src="'app/components/main/view/settings/locations.html'" ng-if="activeTab === 'LOCATIONS'"></ng-include>
                 </tab>
+                <tab  active="act.SERVERS" ng-click="openTab('SERVERS')">
+                    <tab-heading localized-change-tracking>tab.servers</tab-heading>
+                    <ng-include src="'app/components/main/view/settings/servers.html'" ng-if="activeTab === 'SERVERS'"></ng-include>
+                </tab>
                 <tab ng-repeat="plugin in settingsPlugins" active="act['plugin-settings-' + plugin.identifier]"
                      ng-if="!plugin.settingsPermission || hasPermission(plugin.settingsPermission)"
                      ng-click="openTab('plugin-settings-' + plugin.identifier)">
@@ -92,5 +102,6 @@
                 </tab>
             </ul>
         </li>
+
     </tabset>
 </div>

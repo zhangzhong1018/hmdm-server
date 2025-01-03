@@ -204,6 +204,18 @@ angular.module('headwind-kiosk')
             });
         };
 
+        $scope.saveServicesSettings = function () {
+            clearMessages();
+            settingsService.updateServicesSettings($scope.settings, function (response) {
+                if (response.status === 'OK') {
+                    $scope.successMessage = localization.localize('success.settings.servers.saved');
+                    $timeout(function () {
+                        $scope.successMessage = '';
+                    }, 2000);
+                }
+            });
+        };
+
         $scope.saveCommonSettings = function () {
             clearMessages();
             var settings = [];
