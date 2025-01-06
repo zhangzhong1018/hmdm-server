@@ -92,7 +92,7 @@ public class LocationResource {
     @GET
     @Path("/search/{value}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response searchGroups(@PathParam("value") @ApiParam("A filter value") String value) {
+    public Response searchLocations(@PathParam("value") @ApiParam("A filter value") String value) {
         return Response.OK(this.locationDAO.getLocationByCode(value));
     }
 
@@ -111,17 +111,12 @@ public class LocationResource {
                     SecurityContext.get().getCurrentUserName());
             return Response.PERMISSION_DENIED();
         }
-        Location dbLocation = this.locationDAO.getLocationById(location.getId());
-        if (dbLocation != null && !dbLocation.getId().equals(dbLocation.getId())) {
-            return Response.DUPLICATE_ENTITY("error.duplicate.location");
+        if (location.getId() == null) {
+            this.locationDAO.insertLocation(location);
         } else {
-            if (location.getId() == null) {
-                this.locationDAO.insertLocation(location);
-            } else {
-                this.locationDAO.updateLocation(location);
-            }
-            return Response.OK();
+            this.locationDAO.updateLocation(location);
         }
+        return Response.OK();
     }
 
     // =================================================================================================================

@@ -22,11 +22,14 @@
 package com.hmdm.rest.resource;
 
 import com.hmdm.persistence.BroadcastDAO;
+import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.UserDAO;
+import com.hmdm.persistence.domain.Customer;
 import com.hmdm.persistence.domain.Group;
 import com.hmdm.persistence.domain.Broadcast;
 import com.hmdm.rest.json.Response;
 import com.hmdm.security.SecurityContext;
+import com.hmdm.service.EmailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -45,6 +48,8 @@ import javax.ws.rs.core.MediaType;
 public class BroadcastResource {
     private UserDAO userDAO;
     private BroadcastDAO broadcastDAO;
+    private UnsecureDAO unsecureDAO;
+    private EmailService emailService;
 
     /**
      * <p>A logger to be used for logging the events.</p>
@@ -59,76 +64,84 @@ public class BroadcastResource {
 
     @Inject
     public BroadcastResource(BroadcastDAO broadcastDAO,
-                             UserDAO userDAO) {
+                             UserDAO userDAO,UnsecureDAO unsecureDAO, EmailService emailService) {
         this.userDAO = userDAO;
         this.broadcastDAO = broadcastDAO;
+        this.unsecureDAO = unsecureDAO;
+        this.emailService = emailService;
     }
 
     // =================================================================================================================
     @ApiOperation(
-            value = "Get all device locations",
-            notes = "Gets the list of all available device locations",
+            value = "Get all device Broadcast",
+            notes = "Gets the list of all available device Broadcast",
             response = Group.class,
             responseContainer = "List"
     )
     @GET
     @Path("/search")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllLocations() {
+    public Response getAllBroadcasts() {
         return Response.OK(this.broadcastDAO.getAllBroadcasts());
     }
 
     // =================================================================================================================
     @ApiOperation(
-            value = "Search locations",
-            notes = "Search locations meeting the specified filter value",
+            value = "Search Broadcast",
+            notes = "Search Broadcast meeting the specified filter value",
             response = Group.class,
             responseContainer = "List"
     )
     @GET
     @Path("/search/{value}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response searchGroups(@PathParam("value") @ApiParam("A filter value") String value) {
+    public Response searchBroadcasts(@PathParam("value") @ApiParam("A filter value") String value) {
         return Response.OK(this.broadcastDAO.getBroadcastByCode(value));
     }
 
 
     // =================================================================================================================
     @ApiOperation(
-            value = "Create or update device location",
-            notes = "Create a new device location (if id is not provided) or update existing one otherwise."
+            value = "Create or update device Broadcast",
+            notes = "Create a new device Broadcast (if id is not provided) or update existing one otherwise."
     )
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateLocation(Broadcast broadcast) {
+    public Response updateBroadcast(Broadcast broadcast) {
         if (!SecurityContext.get().hasPermission("settings")) {
             log.error("Unauthorized attempt to update groups by user " +
                     SecurityContext.get().getCurrentUserName());
             return Response.PERMISSION_DENIED();
         }
-        Broadcast dbBroadcast = this.broadcastDAO.getBroadcastById(broadcast.getId());
-        if (dbBroadcast != null && !dbBroadcast.getId().equals(dbBroadcast.getId())) {
-            return Response.DUPLICATE_ENTITY("error.duplicate.broadcast");
-        } else {
+//        Broadcast dbBroadcast = this.broadcastDAO.getBroadcastByNumber(broadcast.getNumber());
+//        if (dbBroadcast != null && !dbBroadcast.getId().equals(broadcast.getId())) {
+//            return Response.DUPLICATE_ENTITY("error.duplicate.broadcast");
+//        } else {
+        try{
             if (broadcast.getId() == null) {
                 this.broadcastDAO.insertBroadcast(broadcast);
             } else {
                 this.broadcastDAO.updateBroadcast(broadcast);
             }
+            String to = broadcast.getLecturer() + "," + broadcast.getAttendees();
+            emailService.sendEmail(to, emailService.getBroadcastEmailSubj(null,broadcast.getSubject()),
+                    emailService.getBroadcastEmailBody(null,broadcast.getDescription()));
             return Response.OK();
+        } catch (Exception e) {
+            return Response.ERROR(e.getMessage());
         }
     }
 
     // =================================================================================================================
     @ApiOperation(
-            value = "Delete device location",
-            notes = "Delete an existing device location"
+            value = "Delete device Broadcast",
+            notes = "Delete an existing device Broadcast"
     )
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response removeLocation(@PathParam("id") @ApiParam("Location ID") Integer id) {
+    public Response removeBroadcast(@PathParam("id") @ApiParam("Broadcast ID") Integer id) {
         if (!SecurityContext.get().hasPermission("settings")) {
             log.error("Unauthorized attempt to update groups by user " +
                     SecurityContext.get().getCurrentUserName());

@@ -33,6 +33,8 @@ public interface BroadcastMapper {
 
     List<Broadcast> findByCode(@Param("number") String number);
 
+    Broadcast findByNumber(@Param("number") String number);
+
     Broadcast findById(@Param("id") Integer id);
 
     @Insert({"INSERT INTO broadcasts (type, number, subject, description, lecturer, attendees, starttime) " +

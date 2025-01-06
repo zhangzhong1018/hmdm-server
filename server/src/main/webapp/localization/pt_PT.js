@@ -1,6 +1,6 @@
-if (! document.localization) document.localization = [];
+if (!document.localization) document.localization = [];
 
-document.localization ['pt_PT'] = {
+document.localization['pt_PT'] = {
     'login.username': 'Usuário ou Email',
     'login.username.placeholder': 'Insira o seu usuário ou email',
     'login.password': 'Senha:',
@@ -191,7 +191,7 @@ document.localization ['pt_PT'] = {
     'error.configuration.file.empty.desc': 'Especifique uma descrição de arquivo',
     'error.configuration.file.empty.path': 'Especifique o caminho no dispositivo',
     'error.configuration.file.empty.file': 'Insira uma URL ou faça upload de um arquivo',
-    
+
     'error.notfound.device': 'Dispositivo não encontrado',
     'error.duplicate.device': 'Um dispositivo com o mesmo número já existe',
     'error.duplicate.login': 'Esse login já está em uso',
@@ -399,26 +399,26 @@ document.localization ['pt_PT'] = {
     'form.configuration.settings.apps.permissions.ask.location': 'Conceder automaticamente todos, pedir permissão de localização ao usuário',
     'form.configuration.settings.apps.permissions.deny.location': 'Conceder automaticamente todos, não conceder a permissão de localização',
     'form.configuration.settings.apps.permissions.ask.all': 'Pedir ao usuário todas as permissões',
-    'form.configuration.settings.push.options' : 'Notificações via Push',
-    'form.configuration.settings.push.options.mqtt.worker' : 'Protocolo MQTT (economizar bateria)',
-    'form.configuration.settings.push.options.mqtt.alarm' : 'Protocolo MQTT',
-    'form.configuration.settings.push.options.polling' : 'Sondagem HTTP',
-    'form.configuration.settings.push.options.mqtt.worker.hint' : 'Envie mensagens instantaneamente quando o dispositivo estiver ativo. Mas as mensagens podem atrasar até algumas horas no modo de hibernação. Não use esta opção em dispositivos independentes. O MQTT usa a porta TCP 31000, habilite-o em seu firewall.',
-    'form.configuration.settings.push.options.mqtt.alarm.hint' : 'O MQTT é um protocolo leve que consome recursos mínimos. O MQTT utiliza a porta TCP 31000, ative-a na sua firewall.',
-    'form.configuration.settings.push.options.polling.hint' : 'A sondagem longa persiste numa ligação HTTP que pode consumir mais recursos do servidor. Não requer qualquer porta TCP para além da HTTP(S).',
-    'form.configuration.settings.push.options.keepalive' : 'Tempo Keep-Alive',
-    'form.configuration.settings.minute.1' : '1 minuto',
-    'form.configuration.settings.minutes.2' : '2 minutos',
-    'form.configuration.settings.minutes.3' : '3 minutos',
-    'form.configuration.settings.minutes.5' : '5 minutos',
-    'form.configuration.settings.minutes.10' : '10 minutos',
-    'form.configuration.settings.minutes.15' : '15 minutos',
-    'form.configuration.settings.password.mode' : 'Requisitos de senha',
-    'form.configuration.settings.password.mode.any' : 'Nenhum',
-    'form.configuration.settings.password.mode.present' : 'Apresentar senha',
-    'form.configuration.settings.password.mode.easy' : 'Fácil (ao menos 6 símbolos)',
-    'form.configuration.settings.password.mode.moderate' : 'Moderado (mais de 8 letras e números)',
-    'form.configuration.settings.password.mode.strong' : 'Forte (mais de 8, maiúsculas e minúsculas, números, símbolos)',
+    'form.configuration.settings.push.options': 'Notificações via Push',
+    'form.configuration.settings.push.options.mqtt.worker': 'Protocolo MQTT (economizar bateria)',
+    'form.configuration.settings.push.options.mqtt.alarm': 'Protocolo MQTT',
+    'form.configuration.settings.push.options.polling': 'Sondagem HTTP',
+    'form.configuration.settings.push.options.mqtt.worker.hint': 'Envie mensagens instantaneamente quando o dispositivo estiver ativo. Mas as mensagens podem atrasar até algumas horas no modo de hibernação. Não use esta opção em dispositivos independentes. O MQTT usa a porta TCP 31000, habilite-o em seu firewall.',
+    'form.configuration.settings.push.options.mqtt.alarm.hint': 'O MQTT é um protocolo leve que consome recursos mínimos. O MQTT utiliza a porta TCP 31000, ative-a na sua firewall.',
+    'form.configuration.settings.push.options.polling.hint': 'A sondagem longa persiste numa ligação HTTP que pode consumir mais recursos do servidor. Não requer qualquer porta TCP para além da HTTP(S).',
+    'form.configuration.settings.push.options.keepalive': 'Tempo Keep-Alive',
+    'form.configuration.settings.minute.1': '1 minuto',
+    'form.configuration.settings.minutes.2': '2 minutos',
+    'form.configuration.settings.minutes.3': '3 minutos',
+    'form.configuration.settings.minutes.5': '5 minutos',
+    'form.configuration.settings.minutes.10': '10 minutos',
+    'form.configuration.settings.minutes.15': '15 minutos',
+    'form.configuration.settings.password.mode': 'Requisitos de senha',
+    'form.configuration.settings.password.mode.any': 'Nenhum',
+    'form.configuration.settings.password.mode.present': 'Apresentar senha',
+    'form.configuration.settings.password.mode.easy': 'Fácil (ao menos 6 símbolos)',
+    'form.configuration.settings.password.mode.moderate': 'Moderado (mais de 8 letras e números)',
+    'form.configuration.settings.password.mode.strong': 'Forte (mais de 8, maiúsculas e minúsculas, números, símbolos)',
     'form.configuration.settings.show.wifi': 'Configurações de WiFi em erro de conexão',
     'form.configuration.settings.use.default.launcher': 'Modo de segundo plano',
     'form.configuration.settings.use.default.launcher.hint': 'Não substitua um iniciador de sistema, execute apenas serviços MDM em segundo plano. Não recomendado com o modo quiosque.',
@@ -519,7 +519,7 @@ document.localization ['pt_PT'] = {
     'form.application.setting.comment': 'Comente',
     'form.application.setting.type': 'Tipo',
     'form.application.setting.readonly': 'Não muda no dispositivo',
-    
+
     'form.application.configurations.app': 'Aplicativo',
     'form.application.configurations.configs': 'Configurações',
 
@@ -745,7 +745,7 @@ document.localization ['pt_PT'] = {
     'tab.license': 'Licença',
     'tab.hints': 'Dicas',
     'tab.plugins': 'Plugins',
-    
+
     'tab.configeditor.common.settings': 'Configurações padrão',
     'tab.configeditor.design.settings': 'Configurações de Design',
     'tab.configeditor.applications': 'Aplicativos',
@@ -807,7 +807,7 @@ document.localization ['pt_PT'] = {
     'table.heading.file.description': 'Descrição do arquivo',
     'table.heading.file.action': 'Ação',
     'table.heading.file.lastUpdate': 'Data de criação',
-    
+
     'table.heading.application.pkg': 'ID do pacote',
     'table.heading.application.name': 'Nome da Aplicação',
     'table.heading.application.version': 'Versão',
@@ -865,16 +865,16 @@ document.localization ['pt_PT'] = {
     'table.heading.common.apps.actions': 'Ações',
 
     'notfound.devices': 'Não há dispositivos para mostrar.',
-    'notfound.files':' A lista de arquivos está vazia.',
+    'notfound.files': ' A lista de arquivos está vazia.',
     'notfound.configurations': 'Nenhuma configuração foi encontrada.',
     'notfound.customers': 'Organizações não encontradas.',
     'notfound.common.apps': 'Não há aplicações para mostrar.',
     'notfound.applications': 'Aplicações não encontradas',
-    'notfound.groups':' Grupos não encontrados. Tente uma consulta diferente.',
-    'notfound.users':' Usuários não encontrados. Tente uma consulta diferente.',
+    'notfound.groups': ' Grupos não encontrados. Tente uma consulta diferente.',
+    'notfound.users': ' Usuários não encontrados. Tente uma consulta diferente.',
     'notfound.apps.for.display': 'Não há aplicações para mostrar.',
     'notfound.app.versions.for.display': 'Não há versões para mostrar.',
-    'notfound.roles':'A lista de funções está vazia.',
+    'notfound.roles': 'A lista de funções está vazia.',
 
     'format.date.header': 'HH:mm dd/MM/yyyy',
 
@@ -906,11 +906,11 @@ document.localization ['pt_PT'] = {
     'breadcrumb.config.details': 'Detalhes',
     'breadcrumb.application.versions': 'Versões',
 
-    'app.name': 'Headwind MDM',
-    'app.vendor.name':"h-mdm.com",
-    'app.vendor.link':"https://h-mdm.com",
-    'app.description': 'é o sistema de gerenciamento de dispositivos móveis de código aberto',
-    'app.title': 'Painel Web ${appName}',
+    'app.name': 'Proctor',
+    'app.vendor.name': "IMAGO",
+    'app.vendor.link': "https://imago.us",
+    'app.description': 'MDM',
+    'app.title': '${appName}',
 
     'box.show.my.apps.only': 'Mostrar apenas minhas aplicações',
     'configuration.app.version.upgrade.message': 'Versão instalada ${installedVersion}, versão disponível ${latestVersion}',

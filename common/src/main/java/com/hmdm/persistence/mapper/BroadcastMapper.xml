@@ -67,6 +67,19 @@
         WHERE broadcasts.number like '%${number}%'
     </select>
 
+    <select id="findByNumber" resultMap="broadcastFull">
+        SELECT broadcasts.id,
+               broadcasts.type,
+               broadcasts.number,
+               broadcasts.subject,
+               broadcasts.description,
+               broadcasts.lecturer,
+               broadcasts.attendees,
+               broadcasts.startTime
+        FROM broadcasts
+        WHERE broadcasts.number = #{number}
+    </select>
+
     <select id="findById" resultMap="broadcastFull">
         SELECT broadcasts.id,
                broadcasts.type,

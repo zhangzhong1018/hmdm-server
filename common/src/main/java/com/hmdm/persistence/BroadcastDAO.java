@@ -77,6 +77,11 @@ public class BroadcastDAO {
         return mapper.findByCode(code);
     }
 
+    public Broadcast getBroadcastByNumber(String number) {
+        checkAccess();
+        return mapper.findByNumber(number);
+    }
+
     public void insertBroadcast(Broadcast broadcast) {
         checkAccess();
         mapper.insertBroadcast(broadcast);

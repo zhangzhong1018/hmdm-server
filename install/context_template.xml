@@ -18,10 +18,10 @@
     <!-- private / shared; shared can be used only in Enterprise solution -->
     <Parameter name="usage.scenario" value="private" />
 
-    <!-- If set to 1, the device configuration request must be signed by a shared secret (setup in hash.secret and in the Android app) 
+    <!-- If set to 1, the device configuration request must be signed by a shared secret (setup in hash.secret and in the Android app)
          0 or empty value does not require request signature which is less secure -->
     <Parameter name="secure.enrollment" value="0"/>
-    <!-- A shared secret between mobile app and control panel. 
+    <!-- A shared secret between mobile app and control panel.
          Don't change this unless you know what you're doing -->
     <Parameter name="hash.secret" value="changeme-C3z9vi54"/>
 
@@ -58,7 +58,7 @@
          (supported by Headwind MDM launcher v5.05 and above) -->
     <Parameter name="mqtt.auth" value="1"/>
 
-    <!-- If you have any reverse proxies, specify them here (IP addresses, 
+    <!-- If you have any reverse proxies, specify them here (IP addresses,
     comma-separated) for correct logging of IP addresses -->
     <!-- <Parameter name="proxy.addresses" value="192.168.1.101"/> -->
 
@@ -83,5 +83,6 @@
      The default language is en -->
     <Parameter name="email.recovery.subj" value="_BASE_DIRECTORY_/emails/_LANGUAGE_/recovery_subj.txt"/>
     <Parameter name="email.recovery.body" value="_BASE_DIRECTORY_/emails/_LANGUAGE_/recovery_body.txt"/>
-
+    <Parameter name="email.broadcast.subj" value="_BASE_DIRECTORY_/emails/_LANGUAGE_/broadcast_subj.txt"/>
+    <Parameter name="email.broadcast.body" value="_BASE_DIRECTORY_/emails/_LANGUAGE_/broadcast_body.txt"/>
 </Context>

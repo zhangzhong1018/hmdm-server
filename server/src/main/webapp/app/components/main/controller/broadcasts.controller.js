@@ -116,7 +116,7 @@ angular.module('headwind-kiosk')
             $scope.errorMessage = '';
 
             if (!$scope.broadcast.number) {
-                $scope.errorMessage = localization.localize('error.empty.location.name');
+                $scope.errorMessage = localization.localize('error.empty.broadcast.name');
             } else {
                 var request = {};
                 $scope.broadcast.devices = $scope.devicesSelection;
@@ -135,7 +135,7 @@ angular.module('headwind-kiosk')
                     if (response.status === 'OK') {
                         $modalInstance.close();
                     } else {
-                        $scope.errorMessage = localization.localize('error.duplicate.location.name');
+                        $scope.errorMessage = localization.localize('error.duplicate.broadcast.name');
                     }
                 });
             }

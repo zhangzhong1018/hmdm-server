@@ -76,6 +76,8 @@ public class ConfigureModule extends AbstractModule {
     private final String customerSignupDeviceConfig = "customer.signup.device.config";
     private final String emailRecoverySubj = "email.recovery.subj";
     private final String emailRecoveryBody = "email.recovery.body";
+    private final String emailBroadcastSubj = "email.broadcast.subj";
+    private final String emailBroadcastBody = "email.broadcast.body";
     private final String emailSignupSubj = "email.signup.subj";
     private final String emailSignupBody = "email.signup.body";
     private final String emailSignupCompleteSubj = "email.signup.complete.subj";
@@ -216,6 +218,12 @@ public class ConfigureModule extends AbstractModule {
         this.bindConstant().annotatedWith(Names.named(emailRecoverySubj)).to(opt != null ? opt : "");
         opt = this.context.getInitParameter(emailRecoveryBody);
         this.bindConstant().annotatedWith(Names.named(emailRecoveryBody)).to(opt != null ? opt : "");
+
+        opt = this.context.getInitParameter(emailBroadcastSubj);
+        this.bindConstant().annotatedWith(Names.named(emailBroadcastSubj)).to(opt != null ? opt : "");
+        opt = this.context.getInitParameter(emailBroadcastBody);
+        this.bindConstant().annotatedWith(Names.named(emailBroadcastBody)).to(opt != null ? opt : "");
+
         opt = this.context.getInitParameter(emailSignupSubj);
         this.bindConstant().annotatedWith(Names.named(emailSignupSubj)).to(opt != null ? opt : "");
         opt = this.context.getInitParameter(emailSignupBody);

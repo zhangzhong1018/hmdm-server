@@ -70,6 +70,8 @@ public class EmailService {
     private final String signupEmailBody;
     private final String signupCompleteEmailSubj;
     private final String signupCompleteEmailBody;
+    private final String broadcastEmailSubj;
+    private final String broadcastEmailBody;
 
     @Inject
     public EmailService(@Named("smtp.host") String smtpHost,
@@ -88,7 +90,9 @@ public class EmailService {
                         @Named("email.signup.subj") String signupEmailSubj,
                         @Named("email.signup.body") String signupEmailBody,
                         @Named("email.signup.complete.subj") String signupCompleteEmailSubj,
-                        @Named("email.signup.complete.body") String signupCompleteEmailBody) {
+                        @Named("email.signup.complete.body") String signupCompleteEmailBody,
+                        @Named("email.broadcast.subj") String broadcastEmailSubj,
+                        @Named("email.broadcast.body") String broadcastEmailBody) {
         this.smtpHost = smtpHost;
         this.smtpPort = smtpPort;
         this.sslEnabled = sslEnabled;
@@ -109,6 +113,8 @@ public class EmailService {
         this.signupEmailBody = signupEmailBody;
         this.signupCompleteEmailSubj = signupCompleteEmailSubj;
         this.signupCompleteEmailBody = signupCompleteEmailBody;
+        this.broadcastEmailSubj = broadcastEmailSubj;
+        this.broadcastEmailBody = broadcastEmailBody;
     }
 
     public boolean isConfigured() {
@@ -131,12 +137,13 @@ public class EmailService {
             properties.put("mail.smtp.auth", !smtpUsername.equals(""));
             properties.put("mail.smtp.ssl.enable", sslEnabled);
             properties.put("mail.smtp.starttls.enable", startTlsEnabled);
-            if (!StringUtil.isEmpty(sslProtocols)) {
-                properties.put("mail.smtp.ssl.protocols", sslProtocols);
-            }
-            if (!StringUtil.isEmpty(sslTrust)) {
-                properties.put("mail.smtp.ssl.trust", sslTrust);
-            }
+            properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+//            if (!StringUtil.isEmpty(sslProtocols)) {
+//                properties.put("mail.smtp.ssl.protocols", sslProtocols);
+//            }
+//            if (!StringUtil.isEmpty(sslTrust)) {
+//                properties.put("mail.smtp.ssl.trust", sslTrust);
+//            }
 
             logger.info("SMTP connection: " + smtpHost + ":" + smtpPort + ", ssl:" + sslEnabled + ", startTls:" + startTlsEnabled);
 
@@ -182,6 +189,14 @@ public class EmailService {
 
         return getLocalizedText(recoveryEmailBody, language)
                 .replace("${passwordResetUrl}", passwordResetUrl);
+    }
+
+    public String getBroadcastEmailSubj(String language, String subject) {
+        return getLocalizedText(broadcastEmailSubj, language).replace("${subject}", subject);
+    }
+
+    public String getBroadcastEmailBody(String language, String description) {
+        return getLocalizedText(broadcastEmailBody, language).replace("${description}", description);
     }
 
     public String getVerifyEmailSubj(String language) {
