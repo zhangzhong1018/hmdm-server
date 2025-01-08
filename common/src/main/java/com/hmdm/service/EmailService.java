@@ -138,6 +138,7 @@ public class EmailService {
             properties.put("mail.smtp.ssl.enable", sslEnabled);
             properties.put("mail.smtp.starttls.enable", startTlsEnabled);
             properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+            properties.put("mail.debug", "true");
 //            if (!StringUtil.isEmpty(sslProtocols)) {
 //                properties.put("mail.smtp.ssl.protocols", sslProtocols);
 //            }
@@ -175,7 +176,7 @@ public class EmailService {
             return true;
 
         } catch (Exception e) {
-            logger.warn(e.getMessage());
+            logger.error(e.getMessage());
             return false;
         }
     }

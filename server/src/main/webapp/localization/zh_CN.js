@@ -1117,7 +1117,8 @@ document.localization['zh_CN'] = {
     'table.heading.broadcasts.lecturer': '主讲人',
     'table.heading.broadcasts.attendees': '参会人员',
     'table.heading.broadcasts.devices': '设备',
-    'broadcasts.date.format': 'dd/MM/yyyy HH:mm',
+    'broadcasts.datetime.format': 'dd/MM/yyyy HH:mm',
+    'broadcasts.date.format': 'dd/MM/yyyy',
 
     'form.broadcast.type': '类型',
     'form.broadcast.number': '会议ID',
@@ -1135,4 +1136,4 @@ document.localization['zh_CN'] = {
     'error.duplicate.broadcast.name': '输入的视频会议ID已经存在。尝试使用其他视频会议ID。',
     'yes': 'yes',
     'no': 'No'
-};		
+};

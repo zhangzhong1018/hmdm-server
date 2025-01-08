@@ -114,22 +114,23 @@ public class BroadcastResource {
                     SecurityContext.get().getCurrentUserName());
             return Response.PERMISSION_DENIED();
         }
-//        Broadcast dbBroadcast = this.broadcastDAO.getBroadcastByNumber(broadcast.getNumber());
-//        if (dbBroadcast != null && !dbBroadcast.getId().equals(broadcast.getId())) {
-//            return Response.DUPLICATE_ENTITY("error.duplicate.broadcast");
-//        } else {
-        try{
-            if (broadcast.getId() == null) {
-                this.broadcastDAO.insertBroadcast(broadcast);
-            } else {
-                this.broadcastDAO.updateBroadcast(broadcast);
+        Broadcast dbBroadcast = this.broadcastDAO.getBroadcastByNumber(broadcast.getNumber());
+        if (dbBroadcast != null && !dbBroadcast.getId().equals(broadcast.getId())) {
+            return Response.DUPLICATE_ENTITY("error.duplicate.broadcast");
+        } else {
+            try {
+                if (broadcast.getId() == null) {
+                    this.broadcastDAO.insertBroadcast(broadcast);
+                } else {
+                    this.broadcastDAO.updateBroadcast(broadcast);
+                }
+                String to = broadcast.getLecturer() + "," + broadcast.getAttendees();
+                emailService.sendEmail(to, emailService.getBroadcastEmailSubj(null, broadcast.getSubject()),
+                        emailService.getBroadcastEmailBody(null, broadcast.getDescription()));
+                return Response.OK();
+            } catch (Exception e) {
+                return Response.ERROR(e.getMessage());
             }
-            String to = broadcast.getLecturer() + "," + broadcast.getAttendees();
-            emailService.sendEmail(to, emailService.getBroadcastEmailSubj(null,broadcast.getSubject()),
-                    emailService.getBroadcastEmailBody(null,broadcast.getDescription()));
-            return Response.OK();
-        } catch (Exception e) {
-            return Response.ERROR(e.getMessage());
         }
     }
 

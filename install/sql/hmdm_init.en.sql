@@ -481,3 +481,6 @@ CREATE TABLE "public"."broadcastdevices" (
          CONSTRAINT "broadcastdevices_pkey" PRIMARY KEY ("id")
 );
 
+ALTER TABLE "public"."settings" ADD COLUMN broadcastserver varchar(255);
+ALTER TABLE "public"."settings" ADD COLUMN meetingserver varchar(255);
+

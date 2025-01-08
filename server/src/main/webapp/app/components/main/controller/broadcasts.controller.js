@@ -10,7 +10,7 @@ angular.module('headwind-kiosk')
         };
 
         $scope.localization = localization;
-        $scope.dateFormat = localization.localize('broadcasts.date.format');
+        $scope.datetimeFormat = localization.localize('broadcasts.datetime.format');
 
         $scope.$watch('paging.currentPage', function () {
             $window.scrollTo(0, 0);
@@ -36,7 +36,17 @@ angular.module('headwind-kiosk')
                 controller: 'BroadcastModalController',
                 resolve: {
                     broadcast: function () {
-                        broadcast.startTime *= 1000;
+                        var date = new Date(broadcast.startTime);
+                        var hours = date.getHours().toString().padStart(2, '0');
+                        var minutes = date.getMinutes().toString().padStart(2, '0');
+                        broadcast.time = date
+                        console.log("==================")
+                        console.log(broadcast.startTime)
+                        console.log(date)
+                        console.log(hours)
+                        console.log(minutes)
+                        console.log(broadcast.time)
+                        console.log(JSON.stringify(broadcast))
                         return broadcast;
                     }
                 }
@@ -124,10 +134,12 @@ angular.module('headwind-kiosk')
                     if ($scope.broadcast.hasOwnProperty(prop)) {
                         request[prop] = $scope.broadcast[prop];
                         if(prop === "startTime"){
-                            console.log(request[prop])
                             const date = new Date(request[prop]);
-                            request[prop] = Math.floor(date.getTime() / 1000);
-                            console.log(request[prop])
+                            const time = $scope.broadcast.time;
+                            const timeDate = new Date(time);
+                            date.setHours(timeDate.getHours())
+                            date.setMinutes(timeDate.getMinutes())
+                            request[prop] = Math.floor(date.getTime());
                         }
                     }
                 }

@@ -46,7 +46,7 @@
             <td>{{broadcast.number}}</td>
             <td>{{broadcast.subject}}</td>
             <td>{{broadcast.description}}</td>
-            <td>{{broadcast.startTime * 1000 | date:dateFormat}}</td>
+            <td>{{broadcast.startTime | date:datetimeFormat}}</td>
             <td>{{broadcast.lecturer}}</td>
             <td>{{broadcast.attendees}}</td>
             <td><span ng-repeat="device in broadcast.devices">{{device.name}}<br/></span></td>

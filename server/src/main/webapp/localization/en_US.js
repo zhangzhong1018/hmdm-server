@@ -1116,7 +1116,8 @@ document.localization['en_US'] = {
     'table.heading.broadcasts.lecturer': 'Lecturer',
     'table.heading.broadcasts.attendees': 'Attendees',
     'table.heading.broadcasts.devices': 'Devices',
-    'broadcasts.date.format': 'dd/MM/yyyy HH:mm',
+    'broadcasts.datetime.format': 'dd/MM/yyyy HH:mm',
+    'broadcasts.date.format': 'dd/MM/yyyy',
 
     'form.broadcast.type': 'Type',
     'form.broadcast.number': 'Number',

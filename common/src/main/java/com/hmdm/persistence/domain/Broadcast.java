@@ -56,6 +56,10 @@ public class Broadcast implements Serializable {
     @ApiModelProperty("A list of devices assigned to broadcast")
     private List<LookupItem> devices;
 
+    // Helper fields, not persisted
+    @ApiModelProperty(hidden = true)
+    private String time;
+
 
     public Broadcast() {
     }
@@ -130,5 +134,13 @@ public class Broadcast implements Serializable {
 
     public void setDevices(List<LookupItem> devices) {
         this.devices = devices;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }
